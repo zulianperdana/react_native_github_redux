@@ -1,0 +1,49 @@
+{
+  "common": {
+    "ok": "OK!",
+    "next": "Next",
+    "cancel": "Cancel",
+    "close": "Close",
+    "back": "Back"
+  },
+  "login": {
+    "greetings": "How Dy",
+    "password_greetings": "Hello, ",
+    "username_validation_1": "Should contain at least 1 character",
+    "username_validation_2": "User not found, please make sure you input your username correctly",
+    "greetings_description": "Login using your Github Account to get started",
+    "password_greetings_description": "Please input your password / personal access token",
+    "password_validation_1": "Invalid credentials"
+  },
+  "commits": {
+    "see_details": "See Details",
+    "comments": "Comments",
+    "load_more": "Load More",
+    "no_more_data": "No More Data",
+    "show_only_my_commits": "Show only my commits",
+    "commits_not_found": "Commits not found"
+  },
+  "home": {
+    "search_label": "Search Repository",
+    "repository_not_found": "Repository not Found",
+    "search_histories": "Search Histories",
+    "search_suggestions": "Suggestions"
+  },
+  "settings": {
+    "dark_mode": "Dark Mode",
+    "light_mode": "Light Mode"
+  },
+  "errors":{
+    "temporary": "Temporary Erorr",
+    "error": "Error",
+    "timeout": "Connection Timeout",
+    "cannot-connect": "Connection not found",
+    "server": "Internal server error",
+    "unauthorized": "Unauthorized",
+    "forbidden": "Fobidden",
+    "not-found": "Not Found",
+    "rejected": "Rejected",
+    "unknown": "Unknown",
+    "bad-data": "Bad Data"
+  }
+}
