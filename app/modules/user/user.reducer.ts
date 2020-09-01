@@ -1,4 +1,4 @@
-// This is the vanilla way to create redux module(actions,reducers,selectors),
+// This is the vanilla way to create redux module(actions,reducers,thunk),
 // this can be improved using Redux Toolkit https://redux-toolkit.js.org/tutorials/basic-tutorial
 import * as ACTIONS from './user.actions';
 import {UserDetails, UserState} from 'schemas';

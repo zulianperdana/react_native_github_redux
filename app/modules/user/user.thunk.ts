@@ -1,3 +1,5 @@
+// This is the vanilla way to create redux module(actions,reducers,thunk),
+// this can be improved using Redux Toolkit https://redux-toolkit.js.org/tutorials/basic-tutorial
 import {GithubLoginResult} from 'services/api/api.types';
 import {Api} from 'services/api/api';
 import {
@@ -13,6 +15,7 @@ export function loginToGithub(login: string, password: string) {
     if (result.kind === 'ok') {
       dispatch(setUserDetails(result.user, password));
       await save(result.user.username, password);
+      await api.setup();
       return true;
     }
     return false;
