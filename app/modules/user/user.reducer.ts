@@ -30,7 +30,7 @@ export function clearState() {
   return {type: ACTIONS.CLEAR_STATE};
 }
 
-export function reducer(
+export function userReducer(
   state: UserState = initialState,
   {payload, type}: any,
 ): UserState {
