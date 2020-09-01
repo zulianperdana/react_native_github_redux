@@ -1,5 +1,6 @@
 // This is the vanilla way to create redux module(actions,reducers,thunk),
-// this can be improved using Redux Toolkit https://redux-toolkit.js.org/tutorials/basic-tutorial
+// this can also be done using Redux Toolkit https://redux-toolkit.js.org/tutorials/basic-tutorial
+// please see commit module for Redux Toolkit implementation
 import {GithubLoginResult} from 'services/api/api.types';
 import {Api} from 'services/api/api';
 import {
