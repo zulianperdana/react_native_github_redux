@@ -46,14 +46,15 @@ const styles = StyleSheet.create({
 });
 
 class PasswordScreen extends PureComponent {
-  onSubmit = async (
-    {username, password}: any,
-    {setSubmitting, setErrors}: any,
-  ) => {
-    const {submitForm} = this.props as any;
-    const result: boolean = await submitForm(username, password);
+  onSubmit = async ({password}: any, {setSubmitting, setErrors}: any) => {
+    const {submitForm, history, tempUserDetails} = this.props as any;
+    const result: boolean = await submitForm(
+      tempUserDetails.username,
+      password,
+    );
     setSubmitting(false);
     if (result) {
+      history.replace('/');
     } else {
       setErrors({password: translate('login.password_validation_1')});
     }
@@ -96,10 +97,7 @@ class PasswordScreen extends PureComponent {
                   <Text h4>
                     {translate('login.password_greetings')} {username}
                   </Text>
-                  <Text
-                    h4
-                    tx="login.password_greetings_description"
-                  />
+                  <Text h4 tx="login.password_greetings_description" />
                 </View>
               </View>
               <View style={styles.content}>
