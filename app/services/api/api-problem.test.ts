@@ -35,6 +35,7 @@ test('handles server errors', () => {
     getGeneralApiProblem({problem: 'SERVER_ERROR'} as ApiErrorResponse<null>),
   ).toEqual({
     kind: 'server',
+    temporary: false,
   });
 });
 
@@ -55,6 +56,7 @@ test('handles unauthorized errors', () => {
     } as ApiErrorResponse<null>),
   ).toEqual({
     kind: 'unauthorized',
+    temporary: false,
   });
 });
 
@@ -66,6 +68,7 @@ test('handles forbidden errors', () => {
     } as ApiErrorResponse<null>),
   ).toEqual({
     kind: 'forbidden',
+    temporary: false,
   });
 });
 
@@ -77,6 +80,7 @@ test('handles not-found errors', () => {
     } as ApiErrorResponse<null>),
   ).toEqual({
     kind: 'not-found',
+    temporary: false,
   });
 });
 
@@ -88,6 +92,7 @@ test('handles other client errors', () => {
     } as ApiErrorResponse<null>),
   ).toEqual({
     kind: 'rejected',
+    temporary: false,
   });
 });
 
