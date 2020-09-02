@@ -1,4 +1,9 @@
 export const getGenericPassword = () => ({
   username: 'zulianrizki',
-  password: 'Natsuka98@',
+  password: '******',
+});
+
+export const setGenericPassword = () => ({
+  username: 'zulianrizki',
+  password: '******',
 });
