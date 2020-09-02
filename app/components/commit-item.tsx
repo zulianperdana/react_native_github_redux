@@ -34,9 +34,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     marginBottom: 12,
   },
-  message: {
-    marginTop: 12,
-  },
   root: {
     flexDirection: 'column',
   },

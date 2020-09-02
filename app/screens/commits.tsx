@@ -33,17 +33,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 32,
   },
-  headerView: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    height: 50,
-    marginLeft: 12,
-  },
-  headerText: {
-    flexGrow: 1,
-    flexShrink: 1,
-    marginLeft: 12,
-  },
   listHeaderView: {
     alignItems: 'flex-end',
     marginBottom: 12,

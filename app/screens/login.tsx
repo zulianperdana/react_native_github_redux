@@ -37,14 +37,6 @@ const styles = StyleSheet.create({
     flexGrow: 2,
     justifyContent: 'flex-end',
   },
-  headerTextContainer: {
-    flexGrow: 3,
-    justifyContent: 'center',
-  },
-  root: {
-    flex: 1,
-    paddingHorizontal: 24,
-  },
 });
 
 class LoginScreen extends PureComponent {

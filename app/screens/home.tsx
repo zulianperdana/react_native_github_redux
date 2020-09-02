@@ -35,12 +35,6 @@ const styles = StyleSheet.create({
   card: {
     marginTop: 18,
   },
-  cardHeader: {
-    padding: 8,
-  },
-  logo: {
-    marginHorizontal: 16,
-  },
   repositoryItem: {
     marginBottom: 12,
   },
