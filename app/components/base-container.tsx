@@ -2,15 +2,20 @@ import React, {PureComponent} from 'react';
 import {View} from 'react-native';
 import {withTheme} from 'react-native-elements';
 
-class BaseContainer extends PureComponent {
+interface Props {
+  withPadding?: boolean;
+  theme?: any;
+}
+
+class BaseContainer extends PureComponent<Props, any> {
   render() {
-    const {theme, children} = this.props as any;
+    const {theme, children, withPadding} = this.props;
     // using inline styles to apply react-native-element theme
     return (
       <View
         style={{
           flex: 1,
-          paddingHorizontal: 24,
+          paddingHorizontal: withPadding ? 24 : 0,
           backgroundColor: theme.colors.white,
         }}>
         {children}
@@ -18,5 +23,9 @@ class BaseContainer extends PureComponent {
     );
   }
 }
+
+BaseContainer.defaultProps = {
+  withPadding: true,
+};
 
 export default withTheme(BaseContainer);
