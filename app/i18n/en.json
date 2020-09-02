@@ -4,16 +4,18 @@
     "next": "Next",
     "cancel": "Cancel",
     "close": "Close",
-    "back": "Back"
+    "back": "Back",
+    "required": "This field is Required"
   },
   "login": {
     "greetings": "How Dy",
     "password_greetings": "Hello, ",
-    "username_validation_1": "Should contain at least 1 character",
     "username_validation_2": "User not found, please make sure you input your username correctly",
+    "username_validation_3": "User format is not correct",
     "greetings_description": "Login using your Github Account to get started",
     "password_greetings_description": "Please input your password / personal access token",
-    "password_validation_1": "Invalid credentials"
+    "password_validation_1": "Invalid credentials",
+    "password_validation_2": "Password should be minimal 8 characters"
   },
   "commits": {
     "see_details": "See Details",

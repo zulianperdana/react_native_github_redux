@@ -4,16 +4,19 @@
     "next": "Selanjutnya",
     "cancel": "Batalkan",
     "close": "Tutup",
-    "back": "Kembali"
+    "back": "Kembali",
+    "required": "Isian ini harus diisi"
   },
   "login": {
     "greetings": "Selamat Datang",
     "password_greetings": "Halo, ",
     "username_validation_1": "Minimal terdapat 1 karakter",
     "username_validation_2": "User tidak ditemukan",
+    "username_validation_3": "Format username tidak benar",
     "greetings_description": "Login menggunakan akun Github mu",
     "password_greetings_description": "Silahkan masukan password / personal access token",
-    "password_validation_1": "Password salah"
+    "password_validation_1": "Password salah",
+    "password_validation_2": "Password minimal 8 karakter"
   },
   "commits": {
     "see_details": "Lihat Detail",
