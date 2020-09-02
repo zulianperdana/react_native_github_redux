@@ -59,13 +59,9 @@ export class Api {
   }
 
   /**
-   * Sets up the API.  This will be called during the bootup
-   * sequence and will happen before the first React component
-   * is mounted.
-   *
-   * Be as quick as possible in here.
+   * return true when user is logged in, otherwise return false
    */
-  async setup() {
+  async setup(): Promise<boolean> {
     const {username, password} = await load();
     this.username = username;
     // construct the apisauce instance
@@ -80,6 +76,7 @@ export class Api {
         Accept: 'application/json',
       },
     });
+    return password !== '';
   }
 
   /**

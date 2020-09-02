@@ -8,7 +8,7 @@ const initialState: UserState = {
   userDetails: {} as UserDetails,
   tempUserDetails: {} as UserDetails,
   username: '',
-  password: '',
+  isLoggedIn: false,
 };
 
 export function setUserDetails(userDetails: UserDetails, password: string) {
@@ -23,8 +23,8 @@ export function setUsername(username: string) {
   return {type: ACTIONS.SET_USERNAME, payload: {username}};
 }
 
-export function clearPassword() {
-  return {type: ACTIONS.CLEAR_PASSWORD};
+export function setIsLoggedIn(value: boolean) {
+  return {type: ACTIONS.SET_IS_LOGGED_IN, payload: {value}};
 }
 
 export function clearState() {
@@ -40,14 +40,14 @@ export function userReducer(
       return {
         ...state,
         userDetails: payload.userDetails,
-        password: payload.password,
+        isLoggedIn: true,
       };
     case ACTIONS.SET_TEMPORARY_USER_DETAILS:
       return {...state, tempUserDetails: payload.userDetails};
     case ACTIONS.SET_USERNAME:
       return {...state, username: payload.username};
-    case ACTIONS.CLEAR_PASSWORD:
-      return {...state, password: ''};
+    case ACTIONS.SET_IS_LOGGED_IN:
+      return {...state, isLoggedIn: payload.value};
     case ACTIONS.CLEAR_STATE:
       return initialState;
     default:

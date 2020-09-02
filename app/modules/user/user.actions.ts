@@ -5,5 +5,5 @@ const prefix = 'user/';
 export const SET_USER_DETAILS = prefix + 'SET_USER_DETAILS';
 export const SET_TEMPORARY_USER_DETAILS = prefix + 'SET_TEMPORARY_USER_DETAILS';
 export const SET_USERNAME = prefix + 'SET_USERNAME';
-export const CLEAR_PASSWORD = prefix + 'CLEAR_PASSWORD';
+export const SET_IS_LOGGED_IN = prefix + 'SET_IS_LOGGED_IN';
 export const CLEAR_STATE = prefix + 'CLEAR_STATE';

@@ -1,6 +1,6 @@
 import {createStore, combineReducers, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
-import {userReducer} from './user/user.reducer';
+import {userReducer, setIsLoggedIn} from './user/user.reducer';
 import {darkModeReducer} from './dark-mode/dark-mode.reducer';
 import {searchReducer} from './search/search.reducer';
 import {reducer as commitReducer} from './commit/commit.action.reducer';
@@ -27,12 +27,13 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export default async () => {
   const api = new Api();
-  await api.setup();
+  const isLoggedIn = await api.setup();
 
   let store = createStore(
     persistedReducer,
     applyMiddleware(thunk.withExtraArgument(api)),
   );
+  store.dispatch(setIsLoggedIn(isLoggedIn));
   let persistor = persistStore(store);
   return {store, persistor};
 };

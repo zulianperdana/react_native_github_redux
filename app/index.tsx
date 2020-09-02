@@ -41,11 +41,11 @@ function RootApp() {
 // Please see other for implementation using mapDispatchToProps and mapStateToProps
 const MainScreen = function MainScreen() {
   const {darkMode, user} = useSelector((state: RootState) => state);
-  const {password} = user;
+  const {isLoggedIn} = user;
   return (
     <ThemeProvider useDark={darkMode}>
       <SafeAreaProvider initialSafeAreaInsets={initialWindowSafeAreaInsets}>
-        <RootNavigator password={password} />
+        <RootNavigator isLoggedIn={isLoggedIn} />
       </SafeAreaProvider>
     </ThemeProvider>
   );

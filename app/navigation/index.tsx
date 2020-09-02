@@ -9,7 +9,7 @@ import {NativeRouter, Route} from 'react-router-native';
 import {LoginScreen, PasswordScreen} from '@app/screens';
 
 export const RootNavigator = (props: any) => {
-  const {password} = props;
+  const {isLoggedIn} = props;
   return (
     <NativeRouter>
       <Route exact path="/" component={LoginScreen} />
