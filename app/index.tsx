@@ -1,3 +1,5 @@
+// prevent crash on production https://reactnavigation.org/docs/getting-started
+import 'react-native-gesture-handler';
 import '@app/i18n';
 import {ThemeProvider} from 'react-native-elements';
 import React, {useState, useEffect} from 'react';
