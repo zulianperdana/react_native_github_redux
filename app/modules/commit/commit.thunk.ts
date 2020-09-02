@@ -22,8 +22,6 @@ export const loadRepository = createAsyncThunk(
           paginationDone: false,
           perPage: defaultPerPage,
           repository,
-          refreshing: false,
-          loadingMore: false,
           showOnlyMyCommit: false,
         }),
       );
@@ -45,14 +43,14 @@ export const loadNextPage = createAsyncThunk(
     {dispatch, getState, extra}: any,
   ) => {
     const api: Api = extra;
-    const commit = getState().commit[repositoryName];
+    const commit = getState().commit.items[repositoryName];
     if (!commit.paginationDone || reset) {
       const defaultPerPage = 10;
       const {repository, perPage, showOnlyMyCommit, currentPage} = commit;
       if (reset) {
-        dispatch(actions.setRefreshing({repository, value: true}));
+        dispatch(actions.setRefreshing({value: true}));
       } else {
-        dispatch(actions.setLoadingMore({repository, value: true}));
+        dispatch(actions.setLoadingMore({value: true}));
       }
       const result: CommitResults = await api.getCommits(
         repository,
@@ -61,9 +59,9 @@ export const loadNextPage = createAsyncThunk(
         reset ? 1 : currentPage + 1,
       );
       if (reset) {
-        dispatch(actions.setRefreshing({repository, value: false}));
+        dispatch(actions.setRefreshing({value: false}));
       } else {
-        dispatch(actions.setLoadingMore({repository, value: false}));
+        dispatch(actions.setLoadingMore({value: false}));
       }
       if (result.kind === 'ok') {
         if (result.commits.length === 0 && !reset) {

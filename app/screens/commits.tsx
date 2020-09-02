@@ -80,14 +80,14 @@ class CommitScreen extends PureComponent {
     await onLoad(repository.repository, false);
   };
   renderLoadMoreButton = () => {
-    const {repository} = this.props as any;
+    const {repository, loadingMore} = this.props as any;
     return (
       <SafeAreaView>
         <View style={styles.footer}>
           {repository.commits.length > 0 &&
             (repository.paginationDone ? (
               <Text tx="commits.no_more_data" />
-            ) : repository.loadingMore ? (
+            ) : loadingMore ? (
               <ActivityIndicator />
             ) : (
               <TouchableOpacity onPress={() => this.onLoadMore(repository)}>
@@ -123,8 +123,9 @@ class CommitScreen extends PureComponent {
   );
 
   render() {
+    const {refreshing} = this.props as any;
     const currentRepository = this.props.repository;
-    const {repository, refreshing, commits} = currentRepository;
+    const {repository, commits} = currentRepository;
     return (
       <BaseContainer withPadding={false}>
         {this.renderTitle(repository)}
@@ -150,6 +151,8 @@ const mapStateToProps = (state: RootState, props: any) => {
     repository: repositorySelector(state, {
       repository: repository,
     }),
+    loadingMore: state.commit.loadingMore,
+    refreshing: state.commit.refreshing,
   };
 };
 

@@ -1,3 +1,7 @@
 import {RepositoryItem} from '.';
 
-export type CommitState = Record<string, RepositoryItem>;
+export type CommitState = {
+  items: Record<string, RepositoryItem>;
+  refreshing: boolean;
+  loadingMore: boolean;
+};

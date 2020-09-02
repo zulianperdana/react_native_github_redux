@@ -3,25 +3,28 @@ import {CommitState, RepositoryItem} from '@app/schemas';
 
 import {CLEAR_STATE} from '../global.actions';
 
-const initialState: CommitState = {};
+const initialState: CommitState = {
+  items: {},
+  loadingMore: false,
+  refreshing: false,
+};
 
 const setRepository = (
   state: CommitState,
   repository: string,
   change: (i: RepositoryItem) => RepositoryItem,
 ) => {
-  const r: RepositoryItem = state[repository];
-  return {...state, [repository]: change(r)};
+  const r: RepositoryItem = state.items[repository];
+  return {...state, items: {...state.items, [repository]: change(r)}};
 };
 
 const commitSlice = createSlice({
   name: 'commit',
   initialState: initialState,
   reducers: {
-    [CLEAR_STATE]: () => initialState,
     addRepository: (state, {payload}) => ({
       ...state,
-      [payload.repository]: payload,
+      items: {...state.items, [payload.repository]: payload},
     }),
     setShowOnlyMyCommit: (state, {payload}) =>
       setRepository(state, payload.repository, (r) => ({
@@ -38,21 +41,22 @@ const commitSlice = createSlice({
         ...r,
         paginationDone: payload.value,
       })),
-    setRefreshing: (state, {payload}) =>
-      setRepository(state, payload.repository, (r) => ({
-        ...r,
-        refreshing: payload.value,
-      })),
-    setLoadingMore: (state, {payload}) =>
-      setRepository(state, payload.repository, (r) => ({
-        ...r,
-        loadingMore: payload.value,
-      })),
+    setRefreshing: (state, {payload}) => ({
+      ...state,
+      refreshing: payload.value,
+    }),
+    setLoadingMore: (state, {payload}) => ({
+      ...state,
+      loadingMore: payload.value,
+    }),
     setCommits: (state, {payload}) =>
       setRepository(state, payload.repository, (r) => ({
         ...r,
         commits: payload.value,
       })),
+  },
+  extraReducers: {
+    [CLEAR_STATE]: () => initialState,
   },
 });
 

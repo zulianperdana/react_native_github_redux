@@ -37,7 +37,7 @@ describe('fetch repositories', () => {
 
     return store.dispatch(loadRepository(testRepository)).then((v) => {
       expect(v.payload).toEqual(true);
-      expect(store.getState().commit[testRepository]).toBeDefined();
+      expect(store.getState().commit.items[testRepository]).toBeDefined();
     });
   });
 
@@ -47,7 +47,9 @@ describe('fetch repositories', () => {
     return store
       .dispatch(loadNextPage({repositoryName: testRepository, reset: false}))
       .then(() => {
-        expect(store.getState().commit[testRepository].currentPage).toEqual(2);
+        expect(
+          store.getState().commit.items[testRepository].currentPage,
+        ).toEqual(2);
       });
   });
 
@@ -57,7 +59,9 @@ describe('fetch repositories', () => {
     return store
       .dispatch(loadNextPage({repositoryName: testRepository, reset: true}))
       .then(() => {
-        expect(store.getState().commit[testRepository].currentPage).toEqual(1);
+        expect(
+          store.getState().commit.items[testRepository].currentPage,
+        ).toEqual(1);
       });
   });
 

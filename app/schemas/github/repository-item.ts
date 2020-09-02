@@ -6,7 +6,5 @@ export interface RepositoryItem {
   perPage: number;
   currentPage: number;
   paginationDone: boolean;
-  refreshing: boolean;
-  loadingMore: boolean;
   commits: CommitItem[];
 }
