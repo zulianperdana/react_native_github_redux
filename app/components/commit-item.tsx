@@ -16,20 +16,22 @@ const idFormatter = buildFormatter(idStrings);
 const styles = StyleSheet.create({
   avatarContainer: {
     alignItems: 'flex-start',
-    justifyContent: 'space-between',
     flexDirection: 'column',
     marginBottom: 6,
   },
   avatarNameContainer: {
-    display: 'flex',
     alignItems: 'center',
+    justifyContent: 'flex-start',
     flexDirection: 'row',
   },
   avatarText: {
     flexGrow: 1,
     marginLeft: 12,
   },
-  card: {
+  cardTitle: {
+    display: 'flex',
+    flex: 1,
+    flexDirection: 'column',
     marginBottom: 12,
   },
   message: {
@@ -95,13 +97,13 @@ export default class CommitItemDisplay extends PureComponent {
     } = commit;
     return (
       <Card>
-        <Card.Title>
+        <View style={styles.cardTitle}>
           {author.username !== '' &&
             this.renderAvatar(author, 'authored', authorTime)}
           {committer.username !== '' &&
             committer.username !== author.username &&
             this.renderAvatar(committer, 'committed', commiterTime)}
-        </Card.Title>
+        </View>
         <View style={styles.root}>
           <Text>{message}</Text>
           {this.renderFooter(commentCount, repository, sha)}
