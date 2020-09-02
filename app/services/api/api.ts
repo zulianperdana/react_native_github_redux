@@ -97,8 +97,6 @@ export class Api {
       }
     }
 
-    // transform the data into the format we are expecting
-    console.log(response.data);
     try {
       const {url, login} = response.data;
       const resultUser: UserDetails = {
@@ -128,7 +126,6 @@ export class Api {
     );
     // the typical ways to die when calling an api
     if (!response.ok) {
-      console.log(response);
       const problem = getGeneralApiProblem(response);
       if (problem) {
         if (problem.kind !== 'unauthorized') {
@@ -138,8 +135,6 @@ export class Api {
       }
     }
 
-    // transform the data into the format we are expecting
-    console.log(response.data);
     try {
       const {url, login} = response.data;
       const resultUser: UserDetails = {
@@ -201,16 +196,9 @@ export class Api {
       `/repos/${repository}/commits?per_page=${perPage}&page=${currentPage}${extraQueryString}`,
       {},
     );
-    console.log(
-      `/repos/${repository}/commits?per_page=${perPage}&page=${currentPage}${extraQueryString}`,
-    );
     // the typical ways to die when calling an api
     if (!response.ok) {
       const problem = getGeneralApiProblem(response);
-      console.log(
-        problem,
-        `/repos/${repository}/commits?per_page=${perPage}&page=${currentPage}${extraQueryString}`,
-      );
       if (problem) {
         showAlert(problem);
         return problem;
@@ -220,7 +208,6 @@ export class Api {
     // transform the data into the format we are expecting
     try {
       const items = response.data;
-      console.log(response.data);
       const commitItems: CommitItem[] = items.map((item: any) => ({
         author: {
           username: item.author?.login ?? '',
@@ -240,7 +227,6 @@ export class Api {
       }));
       return {kind: 'ok', commits: commitItems};
     } catch (e) {
-      console.log(e);
       return {kind: 'bad-data', temporary: false};
     }
   }
