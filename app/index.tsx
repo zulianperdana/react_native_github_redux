@@ -11,6 +11,10 @@ import {PersistGate} from 'redux-persist/integration/react';
 import configureStore, {RootState} from '@app/modules/store';
 import {SplashScreen} from '@app/screens';
 import {RootNavigator} from '@app/navigation';
+import {enableScreens} from 'react-native-screens';
+
+enableScreens();
+
 function RootApp() {
   const [rootStore, setRootStore] = useState<any | undefined>(undefined);
 
