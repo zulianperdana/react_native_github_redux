@@ -67,7 +67,7 @@ class PasswordScreen extends PureComponent {
   };
   render() {
     const {tempUserDetails} = this.props as any;
-    const {avatarUrl} = tempUserDetails;
+    const {avatarUrl, username} = tempUserDetails;
     return (
       <Formik
         validationSchema={userPasswordValidationSchema}
@@ -96,8 +96,13 @@ class PasswordScreen extends PureComponent {
                   <Avatar rounded source={{uri: avatarUrl}} />
                 </View>
                 <View style={styles.headerImageContainer}>
-                  <Text category="h1" tx="login.greetings" />
-                  <Text category="p1" tx="login.greetings_description" />
+                  <Text category="h1">
+                    {translate('login.password_greetings')} {username}
+                  </Text>
+                  <Text
+                    category="p1"
+                    tx="login.password_greetings_description"
+                  />
                 </View>
               </View>
               <View style={styles.content}>
