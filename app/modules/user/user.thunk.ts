@@ -7,7 +7,7 @@ import {
   setUserDetails,
   setTemporaryUserDetails,
   clearState,
-} from './user.reducer';
+} from './user.actions';
 import {save, reset} from '@app/services/keychain';
 
 export function loginToGithub(login: string, password: string) {
