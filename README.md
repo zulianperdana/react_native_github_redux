@@ -46,6 +46,11 @@ Make sure you have your React Native environment set up.
 1. git clone https://github.com/zulianperdana/react_native_github.git
 2. cd react_native_github
 3. yarn install
+//for ios
+3a. cd ios
+3b. pod install
+3c. cd ../
+//end for ios
 4. react-native run-ios / react-native run-android
 ```
 
