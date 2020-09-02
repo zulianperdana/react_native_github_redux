@@ -2,7 +2,7 @@
 // this can also be done using Redux Toolkit https://redux-toolkit.js.org/tutorials/basic-tutorial
 // please see commit module for Redux Toolkit implementation
 import {Api} from '@app/services/api/api';
-import {replaceSuggestions} from './search.reducer';
+import {replaceSuggestions} from './search.actions';
 import {debounce} from 'lodash';
 
 export const debouncedSearchRepositories = debounce(
