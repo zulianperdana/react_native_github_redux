@@ -5,7 +5,10 @@ import {translate} from '@app/i18n';
 interface TextProps {
   tx?: string;
   text?: string;
-  category: string;
+  h1?: boolean;
+  h2?: boolean;
+  h3?: boolean;
+  h4?: boolean;
   children?: React.ReactNode;
 }
 export function Text(props: TextProps) {
