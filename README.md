@@ -39,10 +39,6 @@ React Native Github Commit Explorer.
 ![](https://raw.githubusercontent.com/zulianperdana/react_native_github_redux/master/screenshoots/ss8.png)  |  ![](https://raw.githubusercontent.com/zulianperdana/react_native_github_redux/master/screenshoots/ss9.png)
 
 
-## Made with:
-- Typescript
-- [https://github.com/infinitered/ignite-bowser](https://github.com/infinitered/ignite-bowser) boilerplate (i usually use [https://github.com/infinitered/ignite-andross](https://github.com/infinitered/ignite-andross) so this is the first time i used this)
-
 ## Quick Start
 
 Make sure you have your React Native environment set up.
