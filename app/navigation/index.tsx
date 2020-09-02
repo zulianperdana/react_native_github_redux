@@ -5,63 +5,15 @@
  * will use once logged in.
  */
 import React from 'react';
-import {
-  NavigationContainer,
-  NavigationContainerRef,
-} from '@react-navigation/native';
+import {NativeRouter, Route} from 'react-router-native';
+import {LoginScreen, PasswordScreen} from '@app/screens';
 
-import {createNativeStackNavigator} from 'react-native-screens/native-stack';
-import {PrimaryNavigator} from './primary-navigator';
-import {AuthNavigator} from './auth-navigator';
-
-export type RootParamList = {
-  primaryStack: undefined;
-  authStack: undefined;
-};
-
-const Stack = createNativeStackNavigator<RootParamList>();
-
-const RootStack = ({isLoggedIn}: any) => {
-  return (
-    <Stack.Navigator
-      screenOptions={{
-        headerShown: false,
-        gestureEnabled: true,
-
-        stackPresentation: 'modal',
-      }}>
-      {!isLoggedIn ? (
-        <Stack.Screen
-          name="authStack"
-          component={AuthNavigator}
-          options={{
-            headerShown: false,
-          }}
-        />
-      ) : (
-        <Stack.Screen
-          name="primaryStack"
-          component={PrimaryNavigator}
-          options={{
-            headerShown: false,
-          }}
-        />
-      )}
-    </Stack.Navigator>
-  );
-};
-
-export const RootNavigator = React.forwardRef<
-  NavigationContainerRef,
-  Partial<React.ComponentProps<any>>
->((props: any, ref) => {
+export const RootNavigator = (props: any) => {
   const {password} = props;
-  console.log('PASSWORD IS', password);
   return (
-    <NavigationContainer {...props} ref={ref}>
-      <RootStack isLoggedIn={password !== undefined && password !== ''} />
-    </NavigationContainer>
+    <NativeRouter>
+      <Route exact path="/" component={LoginScreen} />
+      <Route exact path="/password" component={PasswordScreen} />
+    </NativeRouter>
   );
-});
-
-RootNavigator.displayName = 'RootNavigator';
+};
