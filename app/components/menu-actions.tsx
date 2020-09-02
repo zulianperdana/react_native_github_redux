@@ -2,7 +2,6 @@ import React, {PureComponent} from 'react';
 import {BottomSheet, ListItem, withTheme, colors} from 'react-native-elements';
 import colorsDark from 'react-native-elements/src/config/colorsDark';
 import {connect} from 'react-redux';
-import {withRouter} from 'react-router-native';
 import {compose} from '@reduxjs/toolkit';
 import {TouchableOpacity, TouchableWithoutFeedback} from 'react-native';
 
@@ -87,7 +86,6 @@ const mapDispatchToProps = (dispatch: any) => {
 };
 
 export default compose(
-  withRouter,
   withTheme,
   connect(mapStateToProps, mapDispatchToProps),
 )(MenuActions);

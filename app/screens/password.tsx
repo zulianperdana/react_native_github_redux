@@ -3,8 +3,6 @@ import {connect} from 'react-redux';
 import {SafeAreaView, View, StyleSheet, TouchableOpacity} from 'react-native';
 import {Button, Input, Header, Avatar} from 'react-native-elements';
 import {Formik} from 'formik';
-import {withRouter} from 'react-router-native';
-import {compose} from 'redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import BaseContainer from '@app/components/base-container';
@@ -47,21 +45,19 @@ const styles = StyleSheet.create({
 
 class PasswordScreen extends PureComponent {
   onSubmit = async ({password}: any, {setSubmitting, setErrors}: any) => {
-    const {submitForm, history, tempUserDetails} = this.props as any;
+    const {submitForm, tempUserDetails} = this.props as any;
     const result: boolean = await submitForm(
       tempUserDetails.username,
       password,
     );
     setSubmitting(false);
-    if (result) {
-      history.replace('/');
-    } else {
+    if (!result) {
       setErrors({password: translate('login.password_validation_1')});
     }
   };
   onBackPressed = () => {
-    const {history} = this.props as any;
-    history.goBack();
+    const {navigation} = this.props as any;
+    navigation.pop();
   };
   render() {
     const {tempUserDetails} = this.props as any;
@@ -148,7 +144,4 @@ const mapDispatchToProps = (dispatch: any) => {
   };
 };
 
-export default compose(
-  withRouter,
-  connect(mapStateToProps, mapDispatchToProps),
-)(PasswordScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(PasswordScreen);

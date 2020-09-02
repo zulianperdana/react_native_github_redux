@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {SafeAreaView, Image, View, StyleSheet} from 'react-native';
 import {Button, Input, withTheme} from 'react-native-elements';
 import {Formik} from 'formik';
-import {withRouter} from 'react-router-native';
 import {compose} from 'redux';
 
 import BaseContainer from '@app/components/base-container';
@@ -50,13 +49,14 @@ const styles = StyleSheet.create({
 
 class LoginScreen extends PureComponent {
   onSubmit = async ({username}: any, {setSubmitting, setErrors}: any) => {
-    const {submitForm, history} = this.props as any;
+    console.log(this.props.navigation);
+    const {submitForm, navigation} = this.props as any;
     const result = await submitForm(username);
     setSubmitting(false);
     if (result == null) {
       setErrors({username: translate('login.username_validation_2')});
     } else {
-      history.push('/password');
+      navigation.push('password');
     }
   };
   render() {
@@ -135,7 +135,6 @@ const mapDispatchToProps = (dispatch: any) => {
 };
 
 export default compose(
-  withRouter,
   withTheme,
   connect(mapStateToProps, mapDispatchToProps),
 )(LoginScreen);
