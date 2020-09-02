@@ -7,7 +7,7 @@ React Native Github Commit Explorer.
  - Trying my best to follow all best practices
  - Inject auth into Api Instance
  - Complete rewrite from scratch
- - Unit test for redix and thunk
+ - Redux and thunk testing with jest
 
 ## Main Features:
 
