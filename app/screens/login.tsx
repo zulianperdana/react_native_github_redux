@@ -1,11 +1,12 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import {SafeAreaView, Image, View, StyleSheet} from 'react-native';
-import {Button, Input} from 'react-native-elements';
+import {Button, Input, withTheme} from 'react-native-elements';
 import {Formik} from 'formik';
 import {withRouter} from 'react-router-native';
 import {compose} from 'redux';
 
+import BaseContainer from '@app/components/base-container';
 import {translate} from '@app/i18n';
 import {Text} from '@app/components';
 import {RootState} from '@app/modules/store';
@@ -74,7 +75,7 @@ class LoginScreen extends PureComponent {
           values,
           isSubmitting,
         }) => (
-          <View style={styles.root}>
+          <BaseContainer>
             <SafeAreaView />
             <View style={styles.header}>
               <View style={styles.headerImageContainer}>
@@ -84,8 +85,8 @@ class LoginScreen extends PureComponent {
                 />
               </View>
               <View style={styles.headerImageContainer}>
-                <Text category="h1" tx="login.greetings" />
-                <Text category="p1" tx="login.greetings_description" />
+                <Text h4 tx="login.greetings" />
+                <Text h4 tx="login.greetings_description" />
               </View>
             </View>
             <View style={styles.content}>
@@ -114,7 +115,7 @@ class LoginScreen extends PureComponent {
                 />
               </View>
             </SafeAreaView>
-          </View>
+          </BaseContainer>
         )}
       </Formik>
     );
@@ -135,5 +136,6 @@ const mapDispatchToProps = (dispatch: any) => {
 
 export default compose(
   withRouter,
+  withTheme,
   connect(mapStateToProps, mapDispatchToProps),
 )(LoginScreen);

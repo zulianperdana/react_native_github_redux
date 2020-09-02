@@ -7,6 +7,7 @@ import {withRouter} from 'react-router-native';
 import {compose} from 'redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+import BaseContainer from '@app/components/base-container';
 import {translate} from '@app/i18n';
 import {Text} from '@app/components';
 import {RootState} from '@app/modules/store';
@@ -41,10 +42,6 @@ const styles = StyleSheet.create({
   },
   root: {
     flex: 1,
-  },
-  padding: {
-    flex: 1,
-    paddingHorizontal: 24,
   },
 });
 
@@ -90,17 +87,17 @@ class PasswordScreen extends PureComponent {
                 </TouchableOpacity>
               }
             />
-            <View style={styles.padding}>
+            <BaseContainer>
               <View style={styles.header}>
                 <View style={styles.headerImageContainer}>
                   <Avatar rounded source={{uri: avatarUrl}} />
                 </View>
                 <View style={styles.headerImageContainer}>
-                  <Text category="h1">
+                  <Text h4>
                     {translate('login.password_greetings')} {username}
                   </Text>
                   <Text
-                    category="p1"
+                    h4
                     tx="login.password_greetings_description"
                   />
                 </View>
@@ -132,7 +129,7 @@ class PasswordScreen extends PureComponent {
                   />
                 </View>
               </SafeAreaView>
-            </View>
+            </BaseContainer>
           </View>
         )}
       </Formik>
