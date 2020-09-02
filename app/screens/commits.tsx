@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   },
   footer: {
     alignItems: 'center',
-    paddingBottom: 32,
+    paddingVertical: 32,
   },
   headerView: {
     alignItems: 'center',
@@ -82,17 +82,19 @@ class CommitScreen extends PureComponent {
   renderLoadMoreButton = () => {
     const {repository} = this.props as any;
     return (
-      <SafeAreaView style={styles.footer}>
-        {repository.commits.length > 0 &&
-          (repository.paginationDone ? (
-            <Text tx="commits.no_more_data" />
-          ) : repository.loadingMore ? (
-            <ActivityIndicator />
-          ) : (
-            <TouchableOpacity onPress={() => this.onLoadMore(repository)}>
-              <Text tx="commits.load_more" />
-            </TouchableOpacity>
-          ))}
+      <SafeAreaView>
+        <View style={styles.footer}>
+          {repository.commits.length > 0 &&
+            (repository.paginationDone ? (
+              <Text tx="commits.no_more_data" />
+            ) : repository.loadingMore ? (
+              <ActivityIndicator />
+            ) : (
+              <TouchableOpacity onPress={() => this.onLoadMore(repository)}>
+                <Text tx="commits.load_more" />
+              </TouchableOpacity>
+            ))}
+        </View>
       </SafeAreaView>
     );
   };
