@@ -40,8 +40,8 @@ function RootApp() {
 // Getting state value using [hooks] here
 // Please see other for implementation using mapDispatchToProps and mapStateToProps
 const MainScreen = function MainScreen() {
-  const {darkMode, user} = useSelector((state: RootState) => state);
-  const {isLoggedIn} = user;
+  const darkMode = useSelector((state: RootState) => state.darkMode);
+  const isLoggedIn = useSelector((state: RootState) => state.user.isLoggedIn);
   return (
     <ThemeProvider useDark={darkMode}>
       <SafeAreaProvider initialSafeAreaInsets={initialWindowSafeAreaInsets}>
