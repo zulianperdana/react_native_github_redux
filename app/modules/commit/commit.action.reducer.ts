@@ -1,6 +1,8 @@
 import {createSlice} from '@reduxjs/toolkit';
 import {CommitState, RepositoryItem} from '@app/schemas';
 
+import {CLEAR_STATE} from '../global.actions';
+
 const initialState: CommitState = {};
 
 const setRepository = (
@@ -16,6 +18,7 @@ const commitSlice = createSlice({
   name: 'commit',
   initialState: initialState,
   reducers: {
+    [CLEAR_STATE]: () => initialState,
     addRepository: (state, {payload}) => ({
       ...state,
       [payload.repository]: payload,
@@ -35,10 +38,20 @@ const commitSlice = createSlice({
         ...r,
         paginationDone: payload.value,
       })),
+    setRefreshing: (state, {payload}) =>
+      setRepository(state, payload.repository, (r) => ({
+        ...r,
+        refreshing: payload.value,
+      })),
+    setLoadingMore: (state, {payload}) =>
+      setRepository(state, payload.repository, (r) => ({
+        ...r,
+        loadingMore: payload.value,
+      })),
     setCommits: (state, {payload}) =>
       setRepository(state, payload.repository, (r) => ({
         ...r,
-        commits: payload.commits,
+        commits: payload.value,
       })),
   },
 });

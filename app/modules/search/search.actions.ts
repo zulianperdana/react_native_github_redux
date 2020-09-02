@@ -1,7 +1,13 @@
-// This is the vanilla way to create redux module(actions,reducers,thunk),
-// this can also be done using Redux Toolkit https://redux-toolkit.js.org/tutorials/basic-tutorial
-// please see commit module for Redux Toolkit implementation
-const prefix = 'search/';
-export const ADD_TO_SEARCH_HISTORY = prefix + 'ADD_TO_SEARCH_HISTORY';
-export const REPLACE_SUGGESTIONS = prefix + 'REPLACE_SUGGESTIONS';
-export const SET_SEARCH = prefix + 'SET_SEARCH';
+import * as ACTIONS from './search.actionTypes';
+
+export function addToSearchHistory(search: string) {
+  return {type: ACTIONS.ADD_TO_SEARCH_HISTORY, payload: {search}};
+}
+
+export function replaceSuggestions(suggestions: string[]) {
+  return {type: ACTIONS.REPLACE_SUGGESTIONS, payload: {suggestions}};
+}
+
+export function setSearch(search: string) {
+  return {type: ACTIONS.SET_SEARCH, payload: {search}};
+}

@@ -1,7 +1,8 @@
 // This is the vanilla way to create redux module(actions,reducers,thunk),
 // this can also be done using Redux Toolkit https://redux-toolkit.js.org/tutorials/basic-tutorial
 // please see commit module for Redux Toolkit implementation
-import * as ACTIONS from './search.actions';
+import * as ACTIONS from './search.actionTypes';
+import {CLEAR_STATE} from '../global.actions';
 import {SearchState} from '@app/schemas';
 
 const initialState: SearchState = {
@@ -9,18 +10,6 @@ const initialState: SearchState = {
   searchSuggestions: [],
   searchHistories: [],
 };
-
-export function addToSearchHistory(search: string) {
-  return {type: ACTIONS.ADD_TO_SEARCH_HISTORY, payload: {search}};
-}
-
-export function replaceSuggestions(suggestions: string[]) {
-  return {type: ACTIONS.REPLACE_SUGGESTIONS, payload: {suggestions}};
-}
-
-export function setSearch(search: string) {
-  return {type: ACTIONS.SET_SEARCH, payload: {search}};
-}
 
 export function searchReducer(
   state: SearchState = initialState,
@@ -39,6 +28,8 @@ export function searchReducer(
       return {...state, searchSuggestions: payload.suggestions};
     case ACTIONS.SET_SEARCH:
       return {...state, searchValue: payload.search};
+    case CLEAR_STATE:
+      return initialState;
     default:
       return state;
   }
