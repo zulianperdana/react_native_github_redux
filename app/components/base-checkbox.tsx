@@ -8,6 +8,7 @@ interface Props {
   title: string;
 }
 
+// add react-native-elements theme to CheckBox
 class BaseCheckbox extends PureComponent<Props, any> {
   render() {
     const {onPress, checked, title, theme} = this.props;

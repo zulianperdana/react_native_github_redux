@@ -12,6 +12,7 @@ interface TextProps {
   style?: any;
   children?: React.ReactNode;
 }
+// base text component that support translation
 export function Text(props: TextProps) {
   // grab the props
   const {tx, text, children, ...rest} = props;

@@ -7,6 +7,7 @@ interface Props {
   theme?: any;
 }
 
+// add react-native-elements theme to View
 class BaseContainer extends PureComponent<Props, any> {
   render() {
     const {theme, children, withPadding} = this.props;

@@ -45,6 +45,7 @@ export interface CommitItemDisplayProps {
   repository: string;
 }
 
+// render commit item
 export default class CommitItemDisplay extends PureComponent {
   timeAgoRenderer = (props: any) => <Text {...props} />;
   renderTimeago = (time: Date) => (

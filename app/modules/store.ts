@@ -28,6 +28,8 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export default async () => {
   const api = new Api();
+
+  //inject auth to api instance
   const isLoggedIn = await api.setup();
 
   let store = createStore(

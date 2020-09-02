@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react';
 import {ScrollView} from 'react-native';
 import {withTheme} from 'react-native-elements';
 
+// add react-native-elements theme to ScrollView
 class BaseScrollView extends PureComponent {
   render() {
     const {theme, children} = this.props as any;

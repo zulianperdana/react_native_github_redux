@@ -11,6 +11,7 @@ import {logout} from '@app/modules/user/user.thunk';
 import {translate} from '@app/i18n';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+// menu actions that contain dark mode switcher and logout button
 class MenuActions extends PureComponent {
   state = {
     isVisible: false,
