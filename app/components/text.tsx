@@ -9,6 +9,7 @@ interface TextProps {
   h2?: boolean;
   h3?: boolean;
   h4?: boolean;
+  style?: any;
   children?: React.ReactNode;
 }
 export function Text(props: TextProps) {
