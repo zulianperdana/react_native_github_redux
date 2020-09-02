@@ -1,8 +1,8 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
-import {CommitResults} from 'services/api/api.types';
+import {CommitResults} from '@app/services/api/api.types';
 import {actions} from './commit.action.reducer';
-import {Api} from 'services/api/api';
-import {RepositoryItem} from 'schemas';
+import {Api} from '@app/services/api/api';
+import {RepositoryItem} from '@app/schemas';
 
 export const loadRepository = createAsyncThunk(
   'commit/loadRepository',

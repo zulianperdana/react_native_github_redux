@@ -2,7 +2,7 @@
 // this can also be done using Redux Toolkit https://redux-toolkit.js.org/tutorials/basic-tutorial
 // please see commit module for Redux Toolkit implementation
 import * as ACTIONS from './search.actions';
-import {SearchState} from 'schemas';
+import {SearchState} from '@app/schemas';
 
 const initialState: SearchState = {
   searchValue: '',
@@ -22,7 +22,7 @@ export function setSearch(search: string) {
   return {type: ACTIONS.SET_SEARCH, payload: {search}};
 }
 
-export function userReducer(
+export function searchReducer(
   state: SearchState = initialState,
   {payload, type}: any,
 ): SearchState {

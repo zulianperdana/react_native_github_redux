@@ -1,5 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {CommitState, RepositoryItem} from 'schemas';
+import {CommitState, RepositoryItem} from '@app/schemas';
 
 const initialState: CommitState = {};
 

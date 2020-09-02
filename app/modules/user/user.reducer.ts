@@ -2,7 +2,7 @@
 // this can also be done using Redux Toolkit https://redux-toolkit.js.org/tutorials/basic-tutorial
 // please see commit module for Redux Toolkit implementation
 import * as ACTIONS from './user.actions';
-import {UserDetails, UserState} from 'schemas';
+import {UserDetails, UserState} from '@app/schemas';
 
 const initialState: UserState = {
   userDetails: {} as UserDetails,
