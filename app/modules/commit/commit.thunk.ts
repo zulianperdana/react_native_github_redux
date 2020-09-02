@@ -7,7 +7,7 @@ import {RepositoryItem} from '@app/schemas';
 export const loadRepository = createAsyncThunk(
   'commit/loadRepository',
   async (repository: string, {dispatch, extra}: any) => {
-    const api: Api = extra.api;
+    const api: Api = extra;
     const defaultPerPage = 10;
     const result: CommitResults = await api.getCommits(
       repository,
@@ -40,7 +40,7 @@ export interface LoadNextPageParam {
 export const loadNextPage = createAsyncThunk(
   'commit/loadNextPage',
   async ({commit, reset}: LoadNextPageParam, {dispatch, extra}: any) => {
-    const api: Api = extra.api;
+    const api: Api = extra;
     if (!commit.paginationDone || reset) {
       const defaultPerPage = 10;
       const {repository, perPage, showOnlyMyCommit, currentPage} = commit;
