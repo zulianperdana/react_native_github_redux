@@ -6,13 +6,13 @@
  */
 import React from 'react';
 import {NativeRouter, Route} from 'react-router-native';
-import {LoginScreen, PasswordScreen} from '@app/screens';
+import {LoginScreen, PasswordScreen, HomeScreen} from '@app/screens';
 
 export const RootNavigator = (props: any) => {
   const {isLoggedIn} = props;
   return (
     <NativeRouter>
-      <Route exact path="/" component={LoginScreen} />
+      <Route exact path="/" component={isLoggedIn ? HomeScreen : LoginScreen} />
       <Route exact path="/password" component={PasswordScreen} />
     </NativeRouter>
   );
