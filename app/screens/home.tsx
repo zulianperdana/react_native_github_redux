@@ -57,7 +57,6 @@ class HomeScreen extends PureComponent {
   onSubmit = async ({repository}: any, {setSubmitting, setErrors}: any) => {
     const {submitForm, navigation, addToSearchHistory} = this.props as any;
     const result = await submitForm(repository);
-    console.log('INI RESULT', result);
     setSubmitting(false);
     if (!result.payload) {
       setErrors({repository: translate('home.repository_not_found')});

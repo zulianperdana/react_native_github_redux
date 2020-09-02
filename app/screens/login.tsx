@@ -49,7 +49,6 @@ const styles = StyleSheet.create({
 
 class LoginScreen extends PureComponent {
   onSubmit = async ({username}: any, {setSubmitting, setErrors}: any) => {
-    console.log(this.props.navigation);
     const {submitForm, navigation} = this.props as any;
     const result = await submitForm(username);
     setSubmitting(false);
