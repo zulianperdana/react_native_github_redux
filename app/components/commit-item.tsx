@@ -69,12 +69,15 @@ export default class CommitItemDisplay extends PureComponent {
       </View>
     );
   };
+  onPressSeeDetails = () => {
+    const {commit, repository} = this.props;
+    const {sha} = commit;
+    Linking.openURL(`https://github.com/${repository}/commit/${sha}`);
+  };
   renderFooter = (commentCount: number, repository: string, sha: string) => (
     <View>
       <Button
-        onPress={() =>
-          Linking.openURL(`https://github.com/${repository}/commit/${sha}`)
-        }
+        onPress={this.onPressSeeDetails}
         title={`${translate(
           'commits.see_details',
         )} (${commentCount}) ${translate('commits.comments')}`}

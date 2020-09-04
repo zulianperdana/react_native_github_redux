@@ -40,10 +40,12 @@ const styles = StyleSheet.create({
 });
 
 class CommitScreen extends PureComponent {
+  onPressBack = () => this.props.navigation.pop();
+
   renderTitle = (repository: string) => (
     <Header
       leftComponent={
-        <TouchableOpacity onPress={() => this.props.navigation.pop()}>
+        <TouchableOpacity onPress={this.onPressBack}>
           <Icon name={'arrow-back'} size={24} color="#000" />
         </TouchableOpacity>
       }
@@ -64,8 +66,8 @@ class CommitScreen extends PureComponent {
     await onLoad(repository.repository, true);
   };
 
-  onLoadMore = async (repository: RepositoryItem) => {
-    const {onLoad} = this.props as any;
+  onLoadMore = async () => {
+    const {onLoad, repository} = this.props as any;
     await onLoad(repository.repository, false);
   };
   renderLoadMoreButton = () => {
@@ -79,7 +81,7 @@ class CommitScreen extends PureComponent {
             ) : loadingMore ? (
               <ActivityIndicator />
             ) : (
-              <TouchableOpacity onPress={() => this.onLoadMore(repository)}>
+              <TouchableOpacity onPress={this.onLoadMore}>
                 <Text tx="commits.load_more" />
               </TouchableOpacity>
             ))}
@@ -88,18 +90,22 @@ class CommitScreen extends PureComponent {
     );
   };
 
+  onPressCheckbox = () => {
+    const {onSetOnlyMyCommit, repository} = this.props as any;
+    const {showOnlyMyCommit} = repository;
+    onSetOnlyMyCommit(!showOnlyMyCommit);
+    this.onRefresh();
+  };
+
   renderListHeader = () => {
-    const {repository, onSetOnlyMyCommit} = this.props as any;
+    const {repository} = this.props as any;
     const {showOnlyMyCommit} = repository;
     return (
       <View style={styles.listHeaderView}>
         <CheckBox
           title={translate('commits.show_only_my_commits')}
           checked={showOnlyMyCommit}
-          onPress={() => {
-            onSetOnlyMyCommit(!showOnlyMyCommit);
-            this.onRefresh(repository);
-          }}
+          onPress={this.onPressCheckbox}
         />
       </View>
     );
